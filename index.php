@@ -3,8 +3,8 @@
 $dir = file_get_contents(__DIR__ . '/base');
 $files = glob('base/*.*');
 
-$city = 'cityName';
-$number = 1;
+$city = $argv[1];
+$startNumber = $argv[2];
 
 mkdir($city);
 
@@ -13,7 +13,7 @@ foreach($files as $file) {
 
     $date = $information['IFD0']['DateTime'];
 
-    rename($file, $city . '/' . $city . '_' . $number . '_' . $date . '.NEF');
+    rename($file, $city . '/' . $city . '_' . $startNumber . '_' . $date . '.NEF');
 
-    $number++;
+    $startNumber++;
 }
